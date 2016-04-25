@@ -37,11 +37,7 @@ public class ShowStatusAction extends ProtegeOWLAction {
         connectionManager = ServerConnectionManager.get(getOWLEditorKit());
         OWLOntology ontology = getOWLEditorKit().getModelManager().getActiveOntology();
         VersionedOntologyDocument vont = connectionManager.getVersionedOntology(ontology);
-        if (vont == null) {
-        	setEnabled(false);
-        } else {
-        	setEnabled(true);
-        }
+        setEnabled(vont != null);
     }
 
     @Override
